@@ -1,0 +1,9 @@
+.\cockroach start-single-node --insecure --listen-addr=localhost:26257 --http-addr=localhost:8080
+
+.\cockroach sql --insecure
+
+create database exr;
+set database = exr;
+import table exercises( name STRING PRIMARY KEY, link STRING NOT NULL, tma STRING NOT NULL, extype STRING NOT NULL) CSV DATA ('http://[::]:3000/exr_sample.csv');
+create show table exercises;
+select * from exercises;
