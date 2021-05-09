@@ -1,5 +1,12 @@
+[open 3 powershell terminal windows]
+[use the first ps terminal to launch pythons http server to locally host the server]
+cd /path/to/data [insert path to target file]
+python -m http.server 3000
+
+[use the second ps terminal to spin up a cockroachdb node instance]
 .\cockroach start-single-node --insecure --listen-addr=localhost:26257 --http-addr=localhost:8080
 
+[use the third ps terminal to access the sql shell to make changes to the node]
 .\cockroach sql --insecure
 
 create database exr;
